@@ -62,7 +62,8 @@ int _addToEncoding(int offset, int bytes, int value, List<int> buffer) {
 }
 
 /// Encode code points as UTF-8 code units.
-List<int> codepointsToUtf8(List<int> codepoints, [int offset = 0, int? length]) {
+List<int> codepointsToUtf8(List<int> codepoints,
+    [int offset = 0, int? length]) {
   var source = ListRange(codepoints, offset, length);
 
   var encodedLength = 0;
@@ -136,8 +137,8 @@ class IterableUtf8Decoder extends IterableBase<int> {
       this.replacementCodepoint = UNICODE_REPLACEMENT_CHARACTER_CODEPOINT]);
 
   @override
-  Utf8Decoder get iterator =>
-      Utf8Decoder(bytes, offset, length == -1 ? null : length, replacementCodepoint);
+  Utf8Decoder get iterator => Utf8Decoder(
+      bytes, offset, length == -1 ? null : length, replacementCodepoint);
 }
 
 /// Provides an iterator of Unicode codepoints from UTF-8 encoded bytes. The
@@ -147,7 +148,6 @@ class IterableUtf8Decoder extends IterableBase<int> {
 /// ArgumentError rather than replace the bad value. The return value
 /// from this method can be used as an Iterable (e.g. in a for-loop).
 class Utf8Decoder implements Iterator<int> {
-
   final ListRangeIterator utf8EncodedBytesIterator;
   final int replacementCodepoint;
   int _current = -1;

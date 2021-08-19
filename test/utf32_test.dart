@@ -112,8 +112,7 @@ void main() {
 }
 
 void testEncodeToUtf32() {
-  expect.listEquals(
-      [], encodeUtf32le(''), 'no input');
+  expect.listEquals([], encodeUtf32le(''), 'no input');
   expect.listEquals(testKoreanCharSubsetUtf32beBom,
       encodeUtf32(testKoreanCharSubset), 'encode UTF-32(BE by default) Korean');
   expect.listEquals(

@@ -54,5 +54,4 @@ void main() {
     expect.equals('𐐒'.length, 2);
     expect.stringEquals('𐐒', string);
   });
-
 }

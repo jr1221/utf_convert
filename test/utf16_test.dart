@@ -69,8 +69,7 @@ void main() {
 }
 
 void testEncodeToUtf16() {
-  expect.listEquals(
-      [], encodeUtf16be(''));
+  expect.listEquals([], encodeUtf16be(''));
   expect.listEquals(testKoreanCharSubsetUtf16beBom,
       encodeUtf16(testKoreanCharSubset), 'encode UTF-16(BE by default) Korean');
 

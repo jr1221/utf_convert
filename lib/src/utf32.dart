@@ -97,7 +97,8 @@ List<int> encodeUtf32(String str) => encodeUtf32be(str, true);
 /// UTF-32BE bytes with no BOM.
 List<int> encodeUtf32be(String str, [bool writeBOM = false]) {
   var utf32CodeUnits = stringToCodepoints(str);
-  var encoding = List<int>.filled((4 * utf32CodeUnits.length + (writeBOM ? 4 : 0)), -1);
+  var encoding =
+      List<int>.filled((4 * utf32CodeUnits.length + (writeBOM ? 4 : 0)), -1);
   var i = 0;
   if (writeBOM) {
     encoding[i++] = 0;
@@ -118,7 +119,8 @@ List<int> encodeUtf32be(String str, [bool writeBOM = false]) {
 /// UTF-32BE bytes with no BOM.
 List<int> encodeUtf32le(String str, [bool writeBOM = false]) {
   var utf32CodeUnits = stringToCodepoints(str);
-  var encoding = List<int>.filled((4 * utf32CodeUnits.length + (writeBOM ? 4 : 0)), -1);
+  var encoding =
+      List<int>.filled((4 * utf32CodeUnits.length + (writeBOM ? 4 : 0)), -1);
   var i = 0;
   if (writeBOM) {
     encoding[i++] = UNICODE_UTF_BOM_LO;
@@ -181,7 +183,6 @@ class IterableUtf32Decoder extends IterableBase<int> {
 
 /// Abstract parent class converts encoded bytes to codepoints.
 abstract class Utf32BytesDecoder implements ListRangeIterator {
-
   final ListRangeIterator utf32EncodedBytesIterator;
   final int replacementCodepoint;
   int _current = -1;

@@ -122,7 +122,8 @@ List<int> encodeUtf16(String str) => encodeUtf16be(str, true);
 /// UTF-16BE bytes with no BOM.
 List<int> encodeUtf16be(String str, [bool writeBOM = false]) {
   var utf16CodeUnits = _stringToUtf16CodeUnits(str);
-  var encoding = List<int>.filled((2 * utf16CodeUnits.length + (writeBOM ? 2 : 0)), -1);
+  var encoding =
+      List<int>.filled((2 * utf16CodeUnits.length + (writeBOM ? 2 : 0)), -1);
   var i = 0;
   if (writeBOM) {
     encoding[i++] = UNICODE_UTF_BOM_HI;
@@ -139,7 +140,8 @@ List<int> encodeUtf16be(String str, [bool writeBOM = false]) {
 /// UTF-16LE bytes with no BOM.
 List<int> encodeUtf16le(String str, [bool writeBOM = false]) {
   var utf16CodeUnits = _stringToUtf16CodeUnits(str);
-  var encoding = List<int>.filled((2 * utf16CodeUnits.length + (writeBOM ? 2 : 0)), -1);
+  var encoding =
+      List<int>.filled((2 * utf16CodeUnits.length + (writeBOM ? 2 : 0)), -1);
   var i = 0;
   if (writeBOM) {
     encoding[i++] = UNICODE_UTF_BOM_LO;
@@ -203,7 +205,6 @@ class IterableUtf16Decoder extends IterableBase<int> {
 /// to produce the code unit (0-(2^16)-1). Relies on BOM to determine
 /// endian-ness, and defaults to BE.
 abstract class Utf16BytesToCodeUnitsDecoder implements ListRangeIterator {
-
   final ListRangeIterator utf16EncodedBytesIterator;
   final int replacementCodepoint;
   int _current = -1;

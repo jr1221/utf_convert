@@ -87,8 +87,8 @@ abstract class _StringDecoder extends StreamTransformerBase<List<int>, String>
   void close() {
     if (_carry != null) {
       if (_replacementChar != null) {
-        _outSink!.add(
-            String.fromCharCodes(List.filled(_carry!.length, _replacementChar!)));
+        _outSink!.add(String.fromCharCodes(
+            List.filled(_carry!.length, _replacementChar!)));
       } else {
         throw ArgumentError('Invalid codepoint');
       }
